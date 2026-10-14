@@ -306,3 +306,67 @@ let actualYear = selectedYear ?? 1989
 
 
 // handle multiple optionals using optional chaining - a?.b?.count - this optional chaining
+let names = ["John", "Aya", "Kerry", "Mandy", "Hugo"]
+let chosen = names.randomElement()?.uppercased() ?? "No one"
+print(chosen)
+
+struct NewBook {
+    let title: String
+    let author: String
+}
+
+var newBook: Book? = nil
+let newAuthor = newBook?.author?.first?.uppercased() ?? "No Value" // optional chaining with nil coalesing
+print(newAuthor)
+
+let coolNames = ["Vincent": "van Gogh", "Pablo": "Picasso", "Claude": "Monet"]
+let surnameLetter = coolNames["Vincent"]?.first?.uppercased() ?? "?"
+
+
+// Examples of optional chaining
+let someNames = ["Taylor", "Paul", "Adele"]
+let lengthOfLast = someNames.last?.count
+
+
+
+let songs: [String]? = [String]()
+let finalSong = songs?.last?.uppercased()
+
+
+
+func albumReleased(in year: Int) -> String? {
+    switch year {
+    case 2006: return "Taylor Swift"
+    case 2008: return "Fearless"
+    case 2010: return "Speak Now"
+    case 2012: return "Red"
+    case 2014: return "1989"
+    case 2017: return "Reputation"
+    default: return nil
+    }
+}
+let someAlbum = albumReleased(in: 2006)?.uppercased()
+
+
+
+
+let shoppingList = ["eggs", "tomatoes", "grapes"]
+let firstItem = shoppingList.first?.appending(" are on my shopping list")
+
+
+
+
+let someCaptains: [String]? = ["Archer", "Lorca", "Sisko"]
+let lengthOfBestCaptain = someCaptains?.last?.count
+
+
+
+let opposites = ["hot": "cold", "near": "far"]
+let oppositeOfLight = opposites["light"]?.uppercased()
+
+
+
+let racers = ["Hamilton", "Verstappen", "Vettel"]
+let winnerWasVE = racers.first?.hasPrefix("Ve")
+
+
