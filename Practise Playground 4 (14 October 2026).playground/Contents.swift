@@ -235,4 +235,74 @@ describe(occupation: job)
 
 
 
-// unwrap optionals with nil coalescing - ??
+// unwrap optionals with nil coalescing - ?? - provides default value
+let captains = [
+    "Enterprise" : "Picard",
+    "Voyager" : "Janeway",
+    "Defiant" : "Sisko"
+]
+
+let new = captains["Serenity"] ?? "No Value" // ?? - This is nil coalescing operator
+print(new)
+
+
+let tvShows = ["Archer", "Babylon 5", "Ted Lasso"]
+let favorite = tvShows.randomElement() ?? "None"
+
+struct Book {
+    let title: String
+    let author: String?
+}
+
+let book = Book(title: "ABC", author: nil)
+let author = book.author ?? "Anon"
+print(author)
+
+
+let inputStr = ""
+let newNumber = Int(inputStr) ?? 0
+print(newNumber)
+
+// Nil coalescing lets us attempt to unwrap an optional, but provide a default value if the optional contains nil
+
+// Examples of Nil coalesing operator
+var bestPony: String? = "Pinkie Pie"
+let selectedPony: String? = bestPony ?? nil
+
+
+
+
+
+let lightsaberColor: String? = "green"
+let color = lightsaberColor ?? "blue"
+
+
+
+
+var captain: String? = "Kathryn Janeway"
+let name = captain ?? "Anonymous"
+
+
+
+
+let planetNumber: Int? = 426
+var destination = planetNumber ?? 3
+
+
+
+
+let distanceRan: Double? = 0.5
+let distance: Double = distanceRan ?? 0
+
+
+
+var userOptedIn: Bool? = nil
+var optedIn = userOptedIn ?? false
+
+
+
+var selectedYear: Int? = nil
+let actualYear = selectedYear ?? 1989
+
+
+// handle multiple optionals using optional chaining - a?.b?.count - this optional chaining
