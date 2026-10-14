@@ -355,7 +355,6 @@ let firstItem = shoppingList.first?.appending(" are on my shopping list")
 
 
 
-
 let someCaptains: [String]? = ["Archer", "Lorca", "Sisko"]
 let lengthOfBestCaptain = someCaptains?.last?.count
 
@@ -370,3 +369,19 @@ let racers = ["Hamilton", "Verstappen", "Vettel"]
 let winnerWasVE = racers.first?.hasPrefix("Ve")
 
 
+
+// Handle function failure with optionals - using try? or try!
+enum UserError: Error {
+    case badID, networkFailed
+}
+
+func getUser(id: Int) throws -> String {
+    throw UserError.networkFailed
+}
+
+if let user = try? getUser(id: 20) { // try? will not help to find which error did you get in the code
+    print("User: \(user)")
+}
+
+let user = (try? getUser(id: 20)) ?? "Anon"
+print(user)
